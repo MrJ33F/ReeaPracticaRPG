@@ -17,6 +17,8 @@ public static class Save
         try
         {
             formatter.Serialize(stream, data);
+            Debug.Log(data);
+            Debug.Log(player.health);
         }
         finally
         {

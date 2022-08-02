@@ -6,6 +6,6 @@ public class ButtonHandler : MonoBehaviour
 {
     public void SaveHandler()
     {
-        Player.SavePlayer();
+        Debug.Log("ok");
     }
 }

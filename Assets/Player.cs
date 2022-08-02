@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     public void SavePlayer()
     {
+        Debug.Log("saveOk");
         Save.SavePlayer(this);
     }
 
