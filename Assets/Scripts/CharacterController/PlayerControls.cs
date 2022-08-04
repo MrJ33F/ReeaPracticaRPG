@@ -176,7 +176,19 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""keyboard"",
+            ""bindingGroup"": ""keyboard"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": true,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Player_Controls
         m_Player_Controls = asset.FindActionMap("Player_Controls", throwIfNotFound: true);
@@ -305,6 +317,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         }
     }
     public Player_ControlsActions @Player_Controls => new Player_ControlsActions(this);
+    private int m_keyboardSchemeIndex = -1;
+    public InputControlScheme keyboardScheme
+    {
+        get
+        {
+            if (m_keyboardSchemeIndex == -1) m_keyboardSchemeIndex = asset.FindControlSchemeIndex("keyboard");
+            return asset.controlSchemes[m_keyboardSchemeIndex];
+        }
+    }
     public interface IPlayer_ControlsActions
     {
         void OnMovement(InputAction.CallbackContext context);
