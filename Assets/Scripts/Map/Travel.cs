@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class Travel : MonoBehaviour
 {
     public GameObject templeKey;
-    public GameObject settingsBut;
+    
+    
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("TempleExit")){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
@@ -22,7 +23,7 @@ public class Travel : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("TempleKey")){
             templeKey.SetActive(true);
-            settingsBut.SetActive(false);
+            
         }
     }
 
