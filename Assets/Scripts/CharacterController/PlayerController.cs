@@ -61,10 +61,5 @@ public class PlayerController : MonoBehaviour
         _rigidBody.velocity = _movementInput * playerSpeed;
     }
     
-    void Flip()
-    {
 
-
-
-    }
 }
