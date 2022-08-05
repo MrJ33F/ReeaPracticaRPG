@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movementInput;
     private SpriteRenderer _spriteRenderer;
 
+
     private bool direction = false; //false x = -1 true y = +1
 
     private void Awake()
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        
+
         _movementInput = _playerControls.Player_Controls.Movement.ReadValue<Vector2>();
 
         _animator.transform.localRotation = (_movementInput.x >= 0) ? Quaternion.Euler(0, 0, 0) : Quaternion.Euler(0, 180, 0);
