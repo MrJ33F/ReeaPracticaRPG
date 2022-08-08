@@ -10,4 +10,10 @@ public class SceneManagering : MonoBehaviour
         Debug.Log("ok");
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void NewGame()
+    {
+        Debug.Log("ok");
+        SceneManager.LoadScene("GameScene");
+    }
 }
