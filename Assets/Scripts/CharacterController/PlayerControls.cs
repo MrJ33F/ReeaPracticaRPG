@@ -71,6 +71,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePos"",
+                    ""type"": ""Value"",
+                    ""id"": ""fafe7400-0d0a-4bb4-a3ee-d6862e42699a"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e526fa2-6c9d-482d-9ede-535dd96781d9"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -197,6 +217,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Controls_Attack = m_Player_Controls.FindAction("Attack", throwIfNotFound: true);
         m_Player_Controls_Roll = m_Player_Controls.FindAction("Roll", throwIfNotFound: true);
         m_Player_Controls_Dash = m_Player_Controls.FindAction("Dash", throwIfNotFound: true);
+        m_Player_Controls_MousePos = m_Player_Controls.FindAction("MousePos", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -261,6 +282,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Controls_Attack;
     private readonly InputAction m_Player_Controls_Roll;
     private readonly InputAction m_Player_Controls_Dash;
+    private readonly InputAction m_Player_Controls_MousePos;
     public struct Player_ControlsActions
     {
         private @PlayerControls m_Wrapper;
@@ -270,6 +292,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Controls_Attack;
         public InputAction @Roll => m_Wrapper.m_Player_Controls_Roll;
         public InputAction @Dash => m_Wrapper.m_Player_Controls_Dash;
+        public InputAction @MousePos => m_Wrapper.m_Player_Controls_MousePos;
         public InputActionMap Get() { return m_Wrapper.m_Player_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,6 +317,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Dash.started -= m_Wrapper.m_Player_ControlsActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_Player_ControlsActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_Player_ControlsActionsCallbackInterface.OnDash;
+                @MousePos.started -= m_Wrapper.m_Player_ControlsActionsCallbackInterface.OnMousePos;
+                @MousePos.performed -= m_Wrapper.m_Player_ControlsActionsCallbackInterface.OnMousePos;
+                @MousePos.canceled -= m_Wrapper.m_Player_ControlsActionsCallbackInterface.OnMousePos;
             }
             m_Wrapper.m_Player_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -313,6 +339,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @MousePos.started += instance.OnMousePos;
+                @MousePos.performed += instance.OnMousePos;
+                @MousePos.canceled += instance.OnMousePos;
             }
         }
     }
@@ -333,5 +362,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnMousePos(InputAction.CallbackContext context);
     }
 }
