@@ -14,8 +14,15 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
+
     bool lookingRight = true;
     private Vector2 movement;
+
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+
+    int attackDamage = 5;
 
     private void Awake()
     {
@@ -23,7 +30,6 @@ public class PlayerController : MonoBehaviour
         playerControlls = new PlayerControls();
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
@@ -64,9 +70,19 @@ public class PlayerController : MonoBehaviour
 
     private void ProcessAttack()
     {
-        bool playerClicked = playerControlls.Player_Controls.Attack.IsPressed();
-        animator.SetBool("isAttackingCombo", animator.GetBool("moving") && playerClicked || playerClicked );
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.right) * 10, Color.red);
+        if (playerControlls.Player_Controls.Attack.IsPressed())
+        {
+            bool playerClicked = playerControlls.Player_Controls.Attack.IsPressed();
+            animator.SetBool("isAttackingCombo", (animator.GetBool("moving") && playerClicked) || playerClicked);
+            Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            foreach (Collider2D enemy in enemiesHit)
+            {
+                Debug.Log("Hit: " + enemy.name);
+                enemy.GetComponent<Entity>().TakeDamage(attackDamage);
+            }
+        }
+        else animator.SetBool("isAttackingCombo", false);
     }
 
     private void ProcessSpecialMovement()
@@ -96,6 +112,14 @@ public class PlayerController : MonoBehaviour
     private void EndDash(InputAction.CallbackContext context)
     {
         animator.SetBool("isDashing", false);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
     
