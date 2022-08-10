@@ -5,24 +5,34 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public int level = 1;
-    public int health = 40;
+    public float[] pos = new float[2];
+    public string scene;
+
+    private void Update()
+    {
+        pos[0] = GameObject.Find("Player Sprite").transform.position.x;
+        pos[1] = GameObject.Find("Player Sprite").transform.position.y;
+        scene = GameObject.Find("Player Sprite").scene.name;
+        Debug.Log("updated");
+    }
 
     public void SavePlayer()
     {
         Debug.Log("saveOk");
     }
 
-    public void SavePlayerConfirmed()
+    public void SavePlayerConfirmed(int slot)
     {
-        Debug.Log("saveOk");
-        Save.SavePlayer(this);
+        pos[0] = GameObject.Find("Player Sprite").transform.position.x;
+        pos[1] = GameObject.Find("Player Sprite").transform.position.y;
+        scene = GameObject.Find("Player Sprite").scene.name;
+        Save.SavePlayer(this,slot);
     }
 
-    public void LoadPlayer()
+    public void LoadPlayer(int slot)
     {
-        PlayerData data = Save.Load();
-        level = data.level;
-        health = data.health;
+        PlayerDates data = Save.Load(slot);
+        pos = data.pos;
+        scene = data.scene;
     }
 }
