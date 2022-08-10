@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             foreach (Collider2D enemy in enemiesHit)
             {
                 Debug.Log("Hit: " + enemy.name);
-                enemy.GetComponent<Entity>().TakeDamage(attackDamage);
+                //enemy.GetComponent<Monster>().TakeDamage(attackDamage);
             }
         }
         else animator.SetBool("isAttackingCombo", false);
