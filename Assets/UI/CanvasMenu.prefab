@@ -587,7 +587,6 @@ GameObject:
   - component: {fileID: 2020082845326100358}
   - component: {fileID: 2020082845326100359}
   - component: {fileID: 3567472161376588503}
-  - component: {fileID: 5849291080578373565}
   m_Layer: 5
   m_Name: CanvasMenu
   m_TagString: Untagged
@@ -691,19 +690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc487638a1bdbf4f8a93e584c16d3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5849291080578373565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020082845326100356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46c2ebf1fea1d444a4c05445e856705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 0}
 --- !u!1 &2020082845678701615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,7 +1435,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1723493150654202815}
   - component: {fileID: 5328397633144181580}
-  - component: {fileID: 122115761183936992}
   m_Layer: 5
   m_Name: Volume Slider
   m_TagString: Untagged
@@ -1531,19 +1516,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &122115761183936992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2526070241447666218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24c3433aae63ee64f921fdefeb561aea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slider: {fileID: 5328397633144181580}
 --- !u!1 &3797964133304553333
 GameObject:
   m_ObjectHideFlags: 0

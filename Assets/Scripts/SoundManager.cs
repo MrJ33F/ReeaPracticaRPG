@@ -12,14 +12,15 @@ public class SoundManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("SoundManager");
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
@@ -42,13 +43,11 @@ public class SoundManager : MonoBehaviour
         Debug.Log(value);
         Debug.Log("Volume changed");
         AudioListener.volume = value;
-        Sliders.Change(value);
         Save(value);
     }
     
     public void Load()
     {
-        Sliders.Change(PlayerPrefs.GetFloat("musicVolume"));
         //volumeSliderr.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
