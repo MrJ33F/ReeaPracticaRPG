@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDates : MonoBehaviour
+[System.Serializable]
+public class PlayerDates
 {
-    private float[] pos= new float[2];
-    private string scene;
+    public float[] pos;
+    public string scene;
 
-    // Update is called once per frame
-    void Update()
+    public PlayerDates(Player player)
     {
-        pos[0] = GameObject.Find("Player Sprite").transform.position.x;
-        pos[1] = GameObject.Find("Player Sprite").transform.position.y;
-        scene = GameObject.Find("Player Sprite").scene.name;
+        pos = new float[2];
+        pos = player.pos;
+        scene = player.scene;
     }
+
 }
