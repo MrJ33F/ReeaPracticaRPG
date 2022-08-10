@@ -6,7 +6,7 @@ using Cinemachine;
 
 public class Travel : MonoBehaviour
 {
-    
+    public Vector2 starticGamePozition;
     public Vector2 exitCave, enterCave;
     public Vector2 exitTemple, enterTemple;
     
@@ -14,8 +14,8 @@ public class Travel : MonoBehaviour
     public CinemachineVirtualCamera CM;
     private void Start() {
 
+        playerStorage.initialValue = starticGamePozition;
         
-        transform.position = playerStorage.initialValue;
         
     }
     
@@ -32,20 +32,24 @@ public class Travel : MonoBehaviour
         
 
         if (collision.gameObject.CompareTag("TempleExit")){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        playerStorage.initialValue = exitTemple;
+            playerStorage.initialValue = exitTemple;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            
         }
         if (collision.gameObject.CompareTag("CaveExit")){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
-        playerStorage.initialValue = exitCave;
+            playerStorage.initialValue = exitCave;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+            
         }
         if (collision.gameObject.CompareTag("CaveEnter")){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-        playerStorage.initialValue = enterCave;
+            playerStorage.initialValue = enterCave;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            
         }
         if (collision.gameObject.CompareTag("TempleEnter")){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             playerStorage.initialValue = enterTemple;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            
         }
           
     }

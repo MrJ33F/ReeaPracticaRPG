@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 4626608548597264466}
   m_Layer: 0
   m_Name: Player (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,6 +314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Sprite
       objectReference: {fileID: 0}
+    - target: {fileID: 8289979516156595355, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8289979516156595358, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -425,10 +429,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dfd09fa9529b24f99e4070dd1a602b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exitCave: {x: 48.2, y: 25.9}
-  enterCave: {x: 0, y: 0}
-  exitTemple: {x: -10.9, y: -47.2}
-  enterTemple: {x: 2.2, y: -1.5}
+  starticGamePozition: {x: -20, y: -12}
+  exitCave: {x: 48.61, y: 25.7}
+  enterCave: {x: 1.98, y: 1.9}
+  exitTemple: {x: -10.79, y: -47.48}
+  enterTemple: {x: 2.55, y: -1.76}
   playerStorage: {fileID: 11400000, guid: 0baf40e9929fa0a44982acd4d181e95b, type: 2}
   CM: {fileID: 8940441866341572757}
 --- !u!4 &4999518252346139189 stripped
