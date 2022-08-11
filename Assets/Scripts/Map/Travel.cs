@@ -18,7 +18,10 @@ public class Travel : MonoBehaviour
         
         
     }
-    
+    private void Update() {
+        playerStorage.playerLocation.x = gameObject.transform.position.x + 0.3f;
+        playerStorage.playerLocation.y = gameObject.transform.position.y - 0.3f;
+    }
 
     
 

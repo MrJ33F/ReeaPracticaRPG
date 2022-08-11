@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-
+    public GameObject goblin;
     public int maxHealth = 100;
     int currentHealth;
 
@@ -32,17 +32,17 @@ public class Entity : MonoBehaviour
     {
         currentHealth -= Damage;
         Debug.Log("Hp " + currentHealth);
-        animator.SetTrigger("Player_Hit");
+        //animator.SetTrigger("Player_Hit");
         if (currentHealth <= 0) Die();
     }
 
     private void Die()
     {
         Debug.Log("Ded");
-        animator.SetBool("isDead", true);
+        animator.SetBool("Death", true);
 
         GetComponent<CapsuleCollider2D>().enabled = false;
-        this.enabled = false;
+        goblin.SetActive(false);
     
     }
 }

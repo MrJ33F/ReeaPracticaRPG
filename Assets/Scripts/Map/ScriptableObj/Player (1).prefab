@@ -62,7 +62,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1411765, y: 1}
+    m_SensorSize: {x: 2.1173077, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -104,6 +104,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2049051114473088896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6013367258479519360}
+  m_Layer: 6
+  m_Name: attackSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6013367258479519360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049051114473088896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.069, y: -0.195, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4999518252346139189}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4969533744406990708
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5968646626942555972}
   - component: {fileID: 1914994093274175858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,9 +341,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4626608548597264466}
     m_Modifications:
+    - target: {fileID: 8289979516156595354, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 6013367258479519360}
+    - target: {fileID: 8289979516156595354, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
+      propertyPath: attackRange
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289979516156595354, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
+      propertyPath: statsPlayer
+      value: 
+      objectReference: {fileID: 11400000, guid: 74e70d7fa5cdf0640bec0bbf9a06dab2, type: 2}
+    - target: {fileID: 8289979516156595354, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 8289979516156595355, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
       propertyPath: m_Name
       value: Player Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 8289979516156595355, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8289979516156595355, guid: bed677dc5bda4c945b11843c0cbd9d15, type: 3}
       propertyPath: m_TagString

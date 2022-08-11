@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private PlayerControls playerControlls;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    
+    public playerStats statsPlayer;
 
 
     bool lookingRight = true;
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerControlls.Player_Controls.Attack.IsPressed())
         {
+            
             bool playerClicked = playerControlls.Player_Controls.Attack.IsPressed();
             animator.SetBool("isAttackingCombo", (animator.GetBool("moving") && playerClicked) || playerClicked);
             Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -79,10 +82,16 @@ public class PlayerController : MonoBehaviour
             foreach (Collider2D enemy in enemiesHit)
             {
                 Debug.Log("Hit: " + enemy.name);
-                enemy.GetComponent<Entity>().TakeDamage(attackDamage);
+                enemy.GetComponent<Entity>().TakeDamage(statsPlayer.damage);
             }
+                
+
+                Debug.Log("Hit goblin ");
         }
-        else animator.SetBool("isAttackingCombo", false);
+        else {
+            
+            animator.SetBool("isAttackingCombo", false);
+        }
     }
 
     private void ProcessSpecialMovement()
