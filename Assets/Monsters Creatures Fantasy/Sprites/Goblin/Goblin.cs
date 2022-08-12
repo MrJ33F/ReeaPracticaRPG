@@ -11,7 +11,9 @@ public class Goblin : MonoBehaviour
     public Animator animator;
     
     public LayerMask playerPosition;
+    
     public GameObject playerTransform;
+    public GameObject playerIdle;
     
     private float idleRadius = 3f;
     private bool isIdleRange;
@@ -25,10 +27,13 @@ public class Goblin : MonoBehaviour
 
     public float attackPct = 5;
     // Update is called once per frame
+    private void Start() {
+        
+    }
     void Update()
     {
         
-        
+        playerIdle.transform.position = transform.position;
         isIdleRange = Physics2D.OverlapCircle(transform.position, idleRadius, playerPosition);
         //flip
         if(aiPath.desiredVelocity.x >= 0.01f){
@@ -56,6 +61,7 @@ public class Goblin : MonoBehaviour
             animator.SetBool("isRuning", true);
             animator.SetBool("Attack", false);
         }
+
         
     }
     

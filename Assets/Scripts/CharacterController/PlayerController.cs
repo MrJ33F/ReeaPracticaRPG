@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
-    int attackDamage = 5;
+    
 
     private void Awake()
     {

@@ -11,6 +11,7 @@ public class Travel : MonoBehaviour
     public Vector2 exitTemple, enterTemple;
     
     public VectorValue playerStorage;
+    public playerStats statsPlayer;
     public CinemachineVirtualCamera CM;
     private void Start() {
 
@@ -21,6 +22,7 @@ public class Travel : MonoBehaviour
     private void Update() {
         playerStorage.playerLocation.x = gameObject.transform.position.x + 0.3f;
         playerStorage.playerLocation.y = gameObject.transform.position.y - 0.3f;
+        statsPlayer.playerLocation = transform.position;
     }
 
     
